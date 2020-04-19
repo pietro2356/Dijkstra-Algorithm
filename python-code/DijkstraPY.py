@@ -1,6 +1,6 @@
 import math
 
-# Implementazione del grafo
+# Implementazione del grafo:
 grafo = {}
 grafo["start"] = {}
 grafo["start"]["a"] = 6
@@ -15,8 +15,16 @@ grafo["b"]["end"] = 5
 
 grafo["end"] = {}
 
-# Tabella costi
+# Tabella costi:
 costo_nodi = {}
 costo_nodi["a"] = 6
 costo_nodi["b"] = 2
 costo_nodi["end"] = math.inf
+
+# Tabella parents:
+parents = {}
+parents["a"] = "start"
+parents["b"] = "start"
+parents["end"] = None
+
+processati = []

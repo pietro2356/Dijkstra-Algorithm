@@ -1,37 +1,54 @@
+import sys
 import math
 
 # Implementazione del grafo:
 grafo = {}
 grafo["start"] = {}
-grafo["start"]["a"] = 6
-grafo["start"]["b"] = 2
+grafo["start"]["a"] = 2
+grafo["start"]["d"] = 8
 
 grafo["a"] = {}
-grafo["a"]["end"] = 1
+grafo["a"]["b"] = 6
+grafo["a"]["c"] = 2
 
 grafo["b"] = {}
-grafo["b"]["a"] = 3
 grafo["b"]["end"] = 5
+
+grafo["c"] = {}
+grafo["c"]["d"] = 2
+grafo["c"]["e"] = 9
+
+grafo["d"] = {}
+grafo["d"]["e"] = 3
+
+grafo["e"] = {}
+grafo["e"]["end"] = 1
 
 grafo["end"] = {}
 
 # Tabella costi:
 costo_nodi = {}
-costo_nodi["a"] = 6
-costo_nodi["b"] = 2
+costo_nodi["a"] = 2
+costo_nodi["b"] = math.inf
+costo_nodi["c"] = math.inf
+costo_nodi["d"] = 8
+costo_nodi["e"] = math.inf
 costo_nodi["end"] = math.inf
 
 # Tabella parents:
 parents = {}
 parents["a"] = "start"
-parents["b"] = "start"
+parents["b"] = None
+parents["c"] = None
+parents["d"] = "start"
+parents["e"] = None
 parents["end"] = None
 
 processati = []
 
 
 def nodo_con_costo_minore(costo_nddi):
-    costo_minimo = math.inf         # Costo minimo del nodo attuale. [Ovviamente non è ancora stato calcoalto]
+    costo_minimo = math.inf           # Costo minimo del nodo attuale. [Ovviamente non è ancora stato calcoalto]
     nodo_con_costo_minimo = None    # Nodo con il costo minimo. Verrà preso in considerazione per il percorso.
 
     for n in costo_nodi:
@@ -57,3 +74,7 @@ while nodo is not None:
     nodo = nodo_con_costo_minore(costo_nodi)
 
 print(parents)
+
+
+def printPercorso():
+    return ValueError

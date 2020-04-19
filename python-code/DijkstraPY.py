@@ -28,3 +28,19 @@ parents["b"] = "start"
 parents["end"] = None
 
 processati = []
+
+nodo = nodo_con_costo_minore(costo_nodi)    # La funzione restituisce il nodo con costo minore.
+
+while nodo is not None:
+    costo_nodo = costo_nodi[nodo]   # costo nodo corrente.
+    vicini = grafo[nodo]    # ricavo i nodi vicini
+
+    for n in vicini.keys():
+        nuovo_costo_nodo = costo_nodo + vicini[n]   # costo per arrivare al nodo che sto esaminando.
+                                                    # Partendo da start
+        if costo_nodi[n] > nuovo_costo_nodo:
+            costo_nodi[n] = nuovo_costo_nodo
+            parents[n] = nodo
+
+    processati.append(nodo)
+    nodo = nodo_con_costo_minore(costo_nodi)

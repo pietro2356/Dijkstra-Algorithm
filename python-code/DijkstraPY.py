@@ -29,6 +29,20 @@ parents["end"] = None
 
 processati = []
 
+def nodo_con_costo_minore(costo_nddi):
+    costo_minimo = math.inf         # Costo minimo del nodo attuale. [Ovviamente non è ancora stato calcoalto]
+    nodo_con_costo_minimo = None    # Nodo con il costo minimo. Verrà preso in considerazione per il percorso.
+
+    for n in costo_nodi:
+        costo_nodo = costo_nodi[n]  # costo del nodo attuale.
+
+        if (costo_nodo < costo_minimo) and (n not in processati):
+            costo_minimo = costo_nodo   # Assegno come costo minimo il costo el nodo appena analizzato.
+            nodo_con_costo_minimo = n   # Assegno Il nodo con l'effettivo costo minimo alla variabile.
+
+    return nodo_con_costo_minimo    # Restituisco il nodo effettivo col costo minimo.
+
+
 nodo = nodo_con_costo_minore(costo_nodi)    # La funzione restituisce il nodo con costo minore.
 
 while nodo is not None:
@@ -42,5 +56,5 @@ while nodo is not None:
             costo_nodi[n] = nuovo_costo_nodo
             parents[n] = nodo
 
-    processati.append(nodo)
+    processati.append(nodo)     # inserisco il nodo appena processato in questo array in modo da non creare loop.
     nodo = nodo_con_costo_minore(costo_nodi)

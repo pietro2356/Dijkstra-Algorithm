@@ -2,6 +2,7 @@ import sys
 import math
 
 # Implementazione del grafo:
+# TODO: Implementare una parte grafina per gestire meglio l'input del grafo.
 grafo = {}
 grafo["start"] = {}
 grafo["start"]["a"] = 2
@@ -73,8 +74,40 @@ while nodo is not None:
     processati.append(nodo)     # inserisco il nodo appena processato in questo array in modo da non creare loop.
     nodo = nodo_con_costo_minore(costo_nodi)
 
-print(parents)
+
+def rielaboraPercorso():    # Funzione per rielaborare l'array parents e restituire il percorso effettivo.
+    val = reversed(parents.values())
+    tmp = None
+    out = []
+
+    for item in val:
+        if item == tmp:
+            out.append(parents[item])
+            break
+        else:
+            out.append(item)
+            tmp = item
+    return out
 
 
-def printPercorso():
-    return ValueError
+def getLastNode():  # Funzione "brutta" ma funzionale. Ci da l'ultima chiave dell'HashTable parents -> Il nodo finale.
+    tmp = ""
+    for item in parents.keys():
+        tmp = item
+
+    return tmp
+
+
+def stampaPercorso(route):  # Da in out il percorso vero e proprio sottoforma di stringa umanamente leggibile.
+    routeF = ""
+    for item in reversed(route):
+        routeF += item + " -> "
+
+    routeF += getLastNode()
+    return routeF.upper()
+
+# TODO: Verificare che l'output funzioni su altri esempi di algoritmi.
+print("ROUTE: ", stampaPercorso(rielaboraPercorso()))
+
+
+

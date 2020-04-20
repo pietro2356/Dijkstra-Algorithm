@@ -4,7 +4,7 @@ Questo proggetto rappresenta il funzionamento dell'algorirmo **Dijkstra**.
 
 ## Come iniziare
 
-Il codice è scritto in **python3**. Non necessita di nessuna libreria esterna!
+Il codice è scritto in **python3** :snake:. Non necessita di nessuna libreria esterna!
 
 ### Prerequisiti
 
@@ -25,8 +25,8 @@ python3 DijkstraPY.py
 
 ## Autori
 
-* **Rocchio Pietro** 
-* **Cerbaro Jessica** 
+* **Rocchio Pietro** :fire_engine:
+* **Cerbaro Jessica** :blossom:
 
 ## Licenza
 

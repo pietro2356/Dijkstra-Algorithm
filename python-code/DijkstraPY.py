@@ -5,47 +5,41 @@ import math
 grafo = {}
 grafo["start"] = {}
 grafo["start"]["a"] = 2
-grafo["start"]["d"] = 8
+grafo["start"]["b"] = 2
+grafo["start"]["c"] = 4
 
 grafo["a"] = {}
-grafo["a"]["b"] = 6
-grafo["a"]["c"] = 2
+grafo["a"]["d"] = 8
 
 grafo["b"] = {}
-grafo["b"]["end"] = 5
+grafo["b"]["c"] = 1
+grafo["b"]["end"] = 7
 
 grafo["c"] = {}
-grafo["c"]["d"] = 2
-grafo["c"]["e"] = 9
+grafo["c"]["end"] = 1
 
 grafo["d"] = {}
-grafo["d"]["e"] = 3
-
-grafo["e"] = {}
-grafo["e"]["end"] = 1
+grafo["d"]["end"] = 2
 
 grafo["end"] = {}
 
 # Tabella costi:
 costoNodi = {}
 costoNodi["a"] = 2
-costoNodi["b"] = math.inf
-costoNodi["c"] = math.inf
-costoNodi["d"] = 8
-costoNodi["e"] = math.inf
+costoNodi["b"] = 2
+costoNodi["c"] = 4
+costoNodi["d"] = math.inf
 costoNodi["end"] = math.inf
 
 # Tabella parents:
 parents = {}
 parents["a"] = "start"
-parents["b"] = None
-parents["c"] = None
-parents["d"] = "start"
-parents["e"] = None
+parents["b"] = "start"
+parents["c"] = "start"
+parents["d"] = None
 parents["end"] = None
 
 processati = []
-
 
 def nodo_con_costo_minore(costo_nddi):
     costoMinimo = math.inf  # Costo minimo del nodo attuale. [Ovviamente non è ancora stato calcoalto]
@@ -97,7 +91,13 @@ def getLastNode():  # Funzione "brutta" ma funzionale. Ci da l'ultima chiave del
     return tmp
 
 
+def getFirstNode():
+    for item in grafo.keys():
+        return item
+
+
 def stampaPercorso(route):  # Da in out il percorso vero e proprio sottoforma di stringa umanamente leggibile.
+    # routeF = getFirstNode() + " -> "
     routeF = ""
     for item in reversed(route):
         routeF += item + " -> "
@@ -106,5 +106,42 @@ def stampaPercorso(route):  # Da in out il percorso vero e proprio sottoforma di
     return routeF.upper()
 
 
+def reloadRoute():
+    # Separiamo le chiavi ed i rispettivi valori in due vettori differenti.
+    val = []
+    key = []
+    outTMP = []
+    for item in parents.keys():
+        key.append(item)
+    for item in parents.values():
+        val.append(item)
+    # Debug:
+    print("KEY: ", key)
+    print("VAL: ", val)
+
+    tmp = 0
+    for i in range(len(key) - 1, -1, -1):
+        if tmp == 0:
+            if val[i] == key[i - 1]:
+                outTMP.append(val[i])
+            elif val[i] != key[i - 1]:
+                # outTMP.append(key[i - 2])
+                # outTMP.append(val[i - 2])
+                tmp = i
+                continue
+        else:
+            outTMP.append(val[tmp])
+            break
+
+    out = "start"
+    for item in range(len(outTMP) - 1, -1, -1):
+        out += " -> " + outTMP[item]
+    out += " -> end"
+    return out.upper()
+
+
 # TODO: Verificare che l'output funzioni su altri esempi di algoritmi.
-print("ROUTE: ", stampaPercorso(rielaboraPercorso()))
+print("Grafo: ", grafo)
+print("Parents: ", parents)
+print("red: ", reloadRoute())
+# print("ROUTE: ", stampaPercorso(rielaboraPercorso()))

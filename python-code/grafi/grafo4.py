@@ -1,5 +1,6 @@
 import math
-# Non funge
+# Percorso:  START -> B -> C -> END
+# OK
 
 grafo = {}
 grafo["start"] = {}

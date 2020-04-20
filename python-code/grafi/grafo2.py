@@ -1,10 +1,10 @@
 import math
-# ROUTE:  B -> A -> D -> END
-# Non funge
+# Percorso:  START -> B -> A -> D -> END
+# OK
 
 grafo = {}
 grafo["start"] = {}
-grafo["start"]["a"] = 8
+grafo["start"]["a"] = 2
 grafo["start"]["b"] = 5
 
 grafo["a"] = {}

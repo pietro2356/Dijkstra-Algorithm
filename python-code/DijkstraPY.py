@@ -5,38 +5,43 @@ import math
 grafo = {}
 grafo["start"] = {}
 grafo["start"]["a"] = 2
-grafo["start"]["b"] = 2
-grafo["start"]["c"] = 4
+grafo["start"]["d"] = 8
 
 grafo["a"] = {}
-grafo["a"]["d"] = 8
+grafo["a"]["c"] = 2
+grafo["a"]["b"] = 6
 
 grafo["b"] = {}
-grafo["b"]["c"] = 1
-grafo["b"]["end"] = 7
+grafo["b"]["end"] = 5
 
 grafo["c"] = {}
-grafo["c"]["end"] = 1
+grafo["c"]["d"] = 2
+grafo["c"]["e"] = 9
 
 grafo["d"] = {}
-grafo["d"]["end"] = 2
+grafo["d"]["e"] = 3
+
+grafo["e"] = {}
+grafo["e"]["end"] = 1
 
 grafo["end"] = {}
 
 # Tabella costi:
 costoNodi = {}
 costoNodi["a"] = 2
-costoNodi["b"] = 2
-costoNodi["c"] = 4
-costoNodi["d"] = math.inf
+costoNodi["b"] = math.inf
+costoNodi["c"] = math.inf
+costoNodi["d"] = 8
+costoNodi["e"] = math.inf
 costoNodi["end"] = math.inf
 
 # Tabella parents:
 parents = {}
 parents["a"] = "start"
-parents["b"] = "start"
-parents["c"] = "start"
-parents["d"] = None
+parents["b"] = None
+parents["c"] = None
+parents["d"] = "start"
+parents["e"] = None
 parents["end"] = None
 
 processati = []
@@ -68,45 +73,19 @@ while nodo is not None:
     nodo = nodo_con_costo_minore(costoNodi)
 
 
-def rielaboraPercorso():  # Funzione per rielaborare l'array parents e restituire il percorso effettivo.
-    val = reversed(parents.values())
-    tmp = None
-    out = []
-
-    for item in val:
-        if item == tmp:
-            out.append(parents[item])
-            break
-        else:
-            out.append(item)
-            tmp = item
-    return out
-
-
 def getLastNode():  # Funzione "brutta" ma funzionale. Ci da l'ultima chiave dell'HashTable parents -> Il nodo finale.
     tmp = ""
     for item in parents.keys():
         tmp = item
-
     return tmp
 
 
-def getFirstNode():
+def getFirstNode(): # Funzione "brutta" ma funzionale. Ci da la prima chiave dell'HashTable parents -> Il nodo iniziale.
     for item in grafo.keys():
         return item
 
 
-def stampaPercorso(route):  # Da in out il percorso vero e proprio sottoforma di stringa umanamente leggibile.
-    # routeF = getFirstNode() + " -> "
-    routeF = ""
-    for item in reversed(route):
-        routeF += item + " -> "
-
-    routeF += getLastNode()
-    return routeF.upper()
-
-
-def reloadRoute():
+def stampaPercorso():
     # Separiamo le chiavi ed i rispettivi valori in due vettori differenti.
     val = []
     key = []
@@ -116,33 +95,28 @@ def reloadRoute():
     for item in parents.values():
         val.append(item)
     # Debug:
-    print("KEY: ", key)
-    print("VAL: ", val)
+    # print("KEY: ", key)
+    # print("VAL: ", val)
 
-    tmp = 0
-    for i in range(len(key) - 1, -1, -1):
-        if tmp == 0:
-            if val[i] == key[i - 1]:
-                outTMP.append(val[i])
-            elif val[i] != key[i - 1]:
-                # outTMP.append(key[i - 2])
-                # outTMP.append(val[i - 2])
-                tmp = i
-                # TODO: Sistemare l'output! In attesa di Help!
-                continue
-        else:
-            outTMP.append(val[tmp])
+    a = len(key) - 1
+    i = 0
+    x = a
+    while i < a:    # Creazione dell'output definitivo per il percorso da seguire.
+        try:
+            v = val[x]
+            outTMP.append(v)
+            x = key.index(v)
+        except:
             break
+        i += 1
 
-    out = "start"
+    out = ""
     for item in range(len(outTMP) - 1, -1, -1):
-        out += " -> " + outTMP[item]
-    out += " -> end"
+        out += outTMP[item] + " -> "
+    out += "end"
     return out.upper()
 
 
-# TODO: Verificare che l'output funzioni su altri esempi di algoritmi.
-print("Grafo: ", grafo)
-print("Parents: ", parents)
-print("red: ", reloadRoute())
-# print("ROUTE: ", stampaPercorso(rielaboraPercorso()))
+# print("Grafo: ", grafo)
+# print("Parents: ", parents)
+print("Percorso: ", stampaPercorso())

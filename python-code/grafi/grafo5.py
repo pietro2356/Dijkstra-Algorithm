@@ -1,46 +1,46 @@
 import math
-# Percorso:  START -> A -> C -> D -> E -> END
+# Percorso:  START -> A -> C -> E -> END
 # OK
 
 grafo = {}
 grafo["start"] = {}
 grafo["start"]["a"] = 2
-grafo["start"]["d"] = 8
+grafo["start"]["b"] = 7
 
 grafo["a"] = {}
-grafo["a"]["c"] = 2
-grafo["a"]["b"] = 6
+grafo["a"]["c"] = 5
 
 grafo["b"] = {}
-grafo["b"]["end"] = 5
+grafo["b"]["c"] = 2
 
 grafo["c"] = {}
-grafo["c"]["d"] = 2
-grafo["c"]["e"] = 9
+grafo["c"]["d"] = 14
+grafo["c"]["e"] = 2
+grafo["c"]["end"] = 10
 
 grafo["d"] = {}
-grafo["d"]["e"] = 3
+grafo["d"]["end"] = 8
 
 grafo["e"] = {}
-grafo["e"]["end"] = 1
+grafo["e"]["end"] = 0
 
 grafo["end"] = {}
 
 # Tabella costi:
 costoNodi = {}
 costoNodi["a"] = 2
-costoNodi["b"] = math.inf
+costoNodi["b"] = 7
 costoNodi["c"] = math.inf
-costoNodi["d"] = 8
+costoNodi["d"] = math.inf
 costoNodi["e"] = math.inf
 costoNodi["end"] = math.inf
 
 # Tabella parents:
 parents = {}
 parents["a"] = "start"
-parents["b"] = None
+parents["b"] = "start"
 parents["c"] = None
-parents["d"] = "start"
+parents["d"] = None
 parents["e"] = None
 parents["end"] = None
 

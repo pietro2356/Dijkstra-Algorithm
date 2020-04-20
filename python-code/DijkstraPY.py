@@ -128,6 +128,7 @@ def reloadRoute():
                 # outTMP.append(key[i - 2])
                 # outTMP.append(val[i - 2])
                 tmp = i
+                # TODO: Sistemare l'output! In attesa di Help!
                 continue
         else:
             outTMP.append(val[tmp])

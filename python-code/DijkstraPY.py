@@ -5,46 +5,105 @@ import math
 grafo = {}
 grafo["start"] = {}
 grafo["start"]["a"] = 2
-grafo["start"]["d"] = 8
+grafo["start"]["b"] = 20
+grafo["start"]["c"] = 10
 
 grafo["a"] = {}
-grafo["a"]["c"] = 2
-grafo["a"]["b"] = 6
+grafo["a"]["d"] = 4
 
 grafo["b"] = {}
-grafo["b"]["end"] = 5
+grafo["b"]["a"] = 0
+grafo["b"]["d"] = 5
+grafo["b"]["e"] = 4
 
 grafo["c"] = {}
-grafo["c"]["d"] = 2
-grafo["c"]["e"] = 9
+grafo["c"]["e"] = 2
+grafo["c"]["f"] = 1
 
 grafo["d"] = {}
-grafo["d"]["e"] = 3
+grafo["d"]["i"] = 40
+grafo["d"]["h"] = 20
+grafo["d"]["e"] = 2
 
 grafo["e"] = {}
-grafo["e"]["end"] = 1
+grafo["e"]["l"] = 2
+grafo["e"]["g"] = 1
+
+grafo["f"] = {}
+grafo["f"]["e"] = 8
+
+grafo["g"] = {}
+grafo["g"]["l"] = 5
+
+grafo["h"] = {}
+grafo["h"]["l"] = 1
+grafo["h"]["k"] = 20
+
+grafo["i"] = {}
+grafo["i"]["j"] = 1
+
+grafo["j"] = {}
+grafo["j"]["m"] = 7
+grafo["j"]["k"] = 14
+
+grafo["k"] = {}
+grafo["k"]["n"] = 7
+
+grafo["l"] = {}
+grafo["l"]["o"] = 2
+grafo["l"]["end"] = 8
+
+grafo["m"] = {}
+grafo["m"]["n"] = 0
+
+grafo["n"] = {}
+grafo["n"]["end"] = 1
+
+grafo["o"] = {}
+grafo["o"]["end"] = 2
 
 grafo["end"] = {}
 
 # Tabella costi:
 costoNodi = {}
 costoNodi["a"] = 2
-costoNodi["b"] = math.inf
-costoNodi["c"] = math.inf
-costoNodi["d"] = 8
+costoNodi["b"] = 20
+costoNodi["c"] = 10
+costoNodi["d"] = math.inf
 costoNodi["e"] = math.inf
+costoNodi["f"] = math.inf
+costoNodi["g"] = math.inf
+costoNodi["h"] = math.inf
+costoNodi["i"] = math.inf
+costoNodi["j"] = math.inf
+costoNodi["k"] = math.inf
+costoNodi["l"] = math.inf
+costoNodi["m"] = math.inf
+costoNodi["n"] = math.inf
+costoNodi["o"] = math.inf
 costoNodi["end"] = math.inf
 
 # Tabella parents:
 parents = {}
 parents["a"] = "start"
-parents["b"] = None
-parents["c"] = None
-parents["d"] = "start"
+parents["b"] = "start"
+parents["c"] = "start"
+parents["d"] = None
 parents["e"] = None
+parents["f"] = None
+parents["g"] = None
+parents["h"] = None
+parents["i"] = None
+parents["j"] = None
+parents["k"] = None
+parents["l"] = None
+parents["m"] = None
+parents["n"] = None
+parents["o"] = None
 parents["end"] = None
 
 processati = []
+
 
 def nodo_con_costo_minore(costo_nddi):
     costoMinimo = math.inf  # Costo minimo del nodo attuale. [Ovviamente non è ancora stato calcoalto]
@@ -80,7 +139,7 @@ def getLastNode():  # Funzione "brutta" ma funzionale. Ci da l'ultima chiave del
     return tmp
 
 
-def getFirstNode(): # Funzione "brutta" ma funzionale. Ci da la prima chiave dell'HashTable parents -> Il nodo iniziale.
+def getFirstNode():  # Funzione "brutta" ma funzionale. Ci da la prima chiave dell'HashTable parents -> Il nodo iniziale.
     for item in grafo.keys():
         return item
 
@@ -101,7 +160,7 @@ def stampaPercorso():
     a = len(key) - 1
     i = 0
     x = a
-    while i < a:    # Creazione dell'output definitivo per il percorso da seguire.
+    while i < a:  # Creazione dell'output definitivo per il percorso da seguire.
         try:
             v = val[x]
             outTMP.append(v)

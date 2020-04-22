@@ -46,6 +46,7 @@ parents["end"] = None
 
 processati = []
 
+
 def nodo_con_costo_minore(costo_nddi):
     costoMinimo = math.inf  # Costo minimo del nodo attuale. [Ovviamente non è ancora stato calcoalto]
     nodoConCostoMinimo = None  # Nodo con il costo minimo. Verrà preso in considerazione per il percorso.
@@ -80,7 +81,7 @@ def getLastNode():  # Funzione "brutta" ma funzionale. Ci da l'ultima chiave del
     return tmp
 
 
-def getFirstNode(): # Funzione "brutta" ma funzionale. Ci da la prima chiave dell'HashTable parents -> Il nodo iniziale.
+def getFirstNode():  # Funzione "brutta" ma funzionale. Ci da la prima chiave dell'HashTable parents -> Il nodo iniziale.
     for item in grafo.keys():
         return item
 
@@ -101,7 +102,7 @@ def stampaPercorso():
     a = len(key) - 1
     i = 0
     x = a
-    while i < a:    # Creazione dell'output definitivo per il percorso da seguire.
+    while i < a:  # Creazione dell'output definitivo per il percorso da seguire.
         try:
             v = val[x]
             outTMP.append(v)

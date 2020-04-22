@@ -4,6 +4,6 @@ setup(
     name='Dijkstra-Algorithm',
     version='1.1dev',
     packages=['Dijkstra-Code'],
-    license='MIT',
+    license=open('LICENSE.md').read(),
     long_description=open('README.md').read(),
 )

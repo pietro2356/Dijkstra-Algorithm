@@ -10,6 +10,9 @@ grafo = {}
 
 > **CREARE I VARI NODI ED I LINK**
 * I nodi saranno: start, a, b, c, d, e, end.
+* **NOTA:**
+    * Indicare come nodo di partenza `"start"`.
+    * Indicare come nodo di arrivo `"end"`.
 * Per prima cosa si creano i nodi senza alcun riferimento.
 * Dopo verranno impostati i vari link tra i vari nodi:
 

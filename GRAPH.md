@@ -114,7 +114,7 @@ processati = []
 ```
 Percorso:  START -> A -> C -> D -> E -> END
 ```
-![grafoResult](/img/grafoResult.png)
+![grafoResult](/img/grafoResultNew.png)
 
 ### ESEMPI
 * **Se vuoi vedere degli esempi, li puoi trovare dentro i file chiamati: `grafoN.py`.**

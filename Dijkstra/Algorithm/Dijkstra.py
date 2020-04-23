@@ -2,49 +2,22 @@ import math
 
 # Implementazione del grafo:
 # TODO: Implementare una parte grafina per gestire meglio l'input del grafo.
-grafo = {}
-grafo["start"] = {}
-grafo["start"]["a"] = 2
-grafo["start"]["d"] = 8
+# --------------------------------------------------------------------------
 
-grafo["a"] = {}
-grafo["a"]["c"] = 2
-grafo["a"]["b"] = 6
+# QUI VA MESSO IL CODICE RAPPRESENTANTE IL GRAFO DA ANALIZZARE.
+# TROVI LA QUIDA NEL FILE 'GRAPH.md'.
 
-grafo["b"] = {}
-grafo["b"]["end"] = 5
-
-grafo["c"] = {}
-grafo["c"]["d"] = 2
-grafo["c"]["e"] = 9
-
-grafo["d"] = {}
-grafo["d"]["e"] = 3
-
-grafo["e"] = {}
-grafo["e"]["end"] = 1
-
-grafo["end"] = {}
-
-# Tabella costi:
-costoNodi = {}
-costoNodi["a"] = 2
-costoNodi["b"] = math.inf
-costoNodi["c"] = math.inf
-costoNodi["d"] = 8
-costoNodi["e"] = math.inf
-costoNodi["end"] = math.inf
-
-# Tabella parents:
-parents = {}
-parents["a"] = "start"
-parents["b"] = None
-parents["c"] = None
-parents["d"] = "start"
-parents["e"] = None
-parents["end"] = None
+# --------------------------------------------------------------------------
 
 processati = []
+
+
+class Dijkstra:
+    @staticmethod
+    def run():
+        run()
+        result()
+        print("End!")
 
 
 def nodo_con_costo_minore(costo_nddi):
@@ -60,18 +33,18 @@ def nodo_con_costo_minore(costo_nddi):
     return nodoConCostoMinimo  # Restituisco il nodo effettivo col costo minimo.
 
 
-nodo = nodo_con_costo_minore(costoNodi)  # La funzione restituisce il nodo con costo minore.
-
-while nodo is not None:
-    costoNodo = costoNodi[nodo]  # costo nodo corrente.
-    vicini = grafo[nodo]  # ricavo i nodi vicini
-    for n in vicini.keys():
-        nuovoCostoNodo = costoNodo + vicini[n]  # costo per arrivare al nodo che sto esaminando.
-        if costoNodi[n] > nuovoCostoNodo:
-            costoNodi[n] = nuovoCostoNodo
-            parents[n] = nodo
-    processati.append(nodo)  # inserisco il nodo appena processato in questo array in modo da non creare loop.
-    nodo = nodo_con_costo_minore(costoNodi)
+def run():
+    nodo = nodo_con_costo_minore(costoNodi)  # La funzione restituisce il nodo con costo minore.
+    while nodo is not None:
+        costoNodo = costoNodi[nodo]  # costo nodo corrente.
+        vicini = grafo[nodo]  # ricavo i nodi vicini
+        for n in vicini.keys():
+            nuovoCostoNodo = costoNodo + vicini[n]  # costo per arrivare al nodo che sto esaminando.
+            if costoNodi[n] > nuovoCostoNodo:
+                costoNodi[n] = nuovoCostoNodo
+                parents[n] = nodo
+        processati.append(nodo)  # inserisco il nodo appena processato in questo array in modo da non creare loop.
+        nodo = nodo_con_costo_minore(costoNodi)
 
 
 def getLastNode():  # Funzione "brutta" ma funzionale. Ci da l'ultima chiave dell'HashTable parents -> Il nodo finale.
@@ -118,6 +91,7 @@ def stampaPercorso():
     return out.upper()
 
 
-# print("Grafo: ", grafo)
-# print("Parents: ", parents)
-print("Percorso: ", stampaPercorso())
+def result():
+    # print("Grafo: ", grafo)
+    # print("Parents: ", parents)
+    print("Percorso: ", stampaPercorso())

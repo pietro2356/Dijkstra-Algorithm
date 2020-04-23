@@ -8,15 +8,30 @@ Il codice è scritto in **python3** :snake:. Non necessita di nessuna libreria e
 
 ### Prerequisiti
 
-Avere un installazione di python3 sul proprio comuter
+* Avere un'istanza **python3** sul proprio computer.
 
 
-### Esecuzione del programma
+### Preparazione all'esecuzione
 
-Per eseguire il programma basta eseguire il comando sotto riportato:
+Prima di poter avviare il programma, vi sono alcune operaizoni preliminari da fare:
 
+```shell script
+python setup.py sdist
 ```
-python3 DijkstraPY.py
+
+Una volta fatto ciò, bisognerà impostare il grafo da far esaminare ill'algoritmo. <br>
+* ***PURTROPPO QUESTA OPERAZIONE VA ANCORA ESEGUITA A MANO*** <br>
+* ***SI STA PROCEDENDO NELLA CREAZIONE DI UN'INTERFACCIA GRAFICA CHE SEMPLIFICHI QUESTA OPERAZIONE***
+
+> ### Per la creazione dei grafi vi rimandiamo alla guida apposita [LINK](GRAPH.md)
+
+### Esecuzione del software
+
+Per eseguire il programma seguire i seguenti passaggi:
+
+```shell script
+cd Dijkstra
+python __main__.py
 ```
 
 ## Creato con

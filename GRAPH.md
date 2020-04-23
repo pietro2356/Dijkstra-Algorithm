@@ -56,7 +56,7 @@ grafo["E"] = {}
 * si consigli di usare `math.inf` per il valore infinito utilizzabile importando il modulo *math* con: `import math`.
 
 * Creiamo il dizionario:
-```python
+```python   
 costoNodi = {}
 ```
 * Settiamo il dizionario:
@@ -73,7 +73,7 @@ costoNodi["E"] = math.inf
 > **CREAZIONE TABELLA DEI 'PARENTI'**
 * Il dizionario che andiamo a creare adesso, serve per tenere traccia del percorso minimo da seguire prodotto dall'algoritmo.
     * Se il nodo non è direttamente collegato al nodo di partenza impostare come valore `None`.
-    * È più semplice spiegare direttamente il codice. :happy:
+    * È più semplice spiegare direttamente il codice. :wink:
     * **IN QUESTO DIZIONARIO NON VA INDICATO IL NODO DI PARTENZA**
     
 * Creiamo il dizionario:

@@ -9,8 +9,6 @@ import math
 
 # --------------------------------------------------------------------------
 
-processati = []
-
 
 class Dijkstra:
     @staticmethod

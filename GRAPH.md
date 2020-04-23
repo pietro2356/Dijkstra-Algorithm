@@ -8,43 +8,44 @@
 grafo = {}
 ```
 
-> **CREARE I VARI NODI**
-* I nodi saranno: S, A, B, C, D, E.
-* Creiamo i **nodi** che ci serviranno:
+> **CREARE I VARI NODI ED I LINK**
+* I nodi saranno: start, a, b, c, d, e, end.
+* Per prima cosa si creano i nodi senza alcun riferimento.
+* Dopo verranno impostati i vari link tra i vari nodi:
+
 ```python
 grafo["nome_nodo"] = {}
-grafo["S"] = {}
-grafo["A"] = {}
-grafo["B"] = {}
-grafo["C"] = {}
-grafo["D"] = {}
-grafo["E"] = {}
-```
+grafo["nome_nodo"]["nodo_arrivo"] = peso
 
-> **IMPOSTIAMO I LINK**
-* Adesso andremo a creare i link tra i vari nodi come da immagine:
-```python
-grafo["nodo_partenza"]["nodo_arrivo"] = peso
-# Link S -> A e S -> C
-grafo["S"]["A"] = 2
-grafo["S"]["C"] = 4
+# Link del nodo "start" al nodo A e D
+grafo["start"] = {}
+grafo["start"]["a"] = 2
+grafo["start"]["d"] = 8
 
-# Link A -> B e A -> D
-grafo["A"]["B"] = 10
-grafo["A"]["D"] = 9
+# Link del nodo "A" al nodo C e B
+grafo["a"] = {}
+grafo["a"]["c"] = 2
+grafo["a"]["b"] = 6
 
-# Link B -> E
-grafo["B"]["E"] = 5
+# Link del nodo "B" al nodo END
+grafo["b"] = {}
+grafo["b"]["end"] = 5
 
-# Link C -> A e C -> D
-grafo["C"]["A"] = 1
-grafo["C"]["D"] = 7
+# Link del nodo "C" al nodo D e E
+grafo["c"] = {}
+grafo["c"]["d"] = 2
+grafo["c"]["e"] = 9
 
-# Link D -> E
-grafo["D"]["E"] = 5
+# Link del nodo "D" al nodo E
+grafo["d"] = {}
+grafo["d"]["e"] = 3
 
-# Il link di destinazione va lasciato vuoto.
-grafo["E"] = {}
+# Link del nodo "E" al nodo END
+grafo["e"] = {}
+grafo["e"]["end"] = 1
+
+# L'ultimo nodo va lasciato senza link!
+grafo["end"] = {}
 ```
 
 > **IMPOSTAZIONE COSTO DEI NODI**
@@ -63,11 +64,12 @@ costoNodi = {}
 ```python
 costoNodi["nodo"] = peso
 
-costoNodi["A"] = 2
-costoNodi["B"] = 4
-costoNodi["C"] = math.inf
-costoNodi["D"] = math.inf
-costoNodi["E"] = math.inf
+costoNodi["a"] = 2
+costoNodi["b"] = math.inf
+costoNodi["c"] = math.inf
+costoNodi["d"] = 8
+costoNodi["e"] = math.inf
+costoNodi["end"] = math.inf
 ```
 
 > **CREAZIONE TABELLA DEI 'PARENTI'**
@@ -90,11 +92,12 @@ parents["nodo"] = "nodo_di_partenza"
 parents["nodo"] = None
 
 # Quindi:
-parents["A"] = "start"
-parents["B"] = "start"
-parents["C"] = None
-parents["D"] = None
-parents["E"] = None
+parents["a"] = "start"
+parents["b"] = None
+parents["c"] = None
+parents["d"] = "start"
+parents["e"] = None
+parents["end"] = None
 ```
 
 > **TABELLA DEI NODI PROCESSATI**
@@ -106,7 +109,7 @@ processati = []
 ### ULTIME COSE
 * Adesso abbiamo finito, se tutto è adato bene il risualtato del programma dovrebbe essere questo:
 ```
-Percorso:  S -> A -> D -> E
+Percorso:  START -> A -> C -> D -> E -> END
 ```
 ![grafoResult](/img/grafoResult.png)
 

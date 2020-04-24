@@ -35,3 +35,7 @@ parents["D"] = None
 parents["E"] = None
 
 processati = []
+
+print("GRAFO:", grafo)
+print("COSTO NODI:", costoNodi)
+print("PARENTS:", parents)

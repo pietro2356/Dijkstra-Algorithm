@@ -18,16 +18,13 @@ class Dijkstra:
     processati = []
 
     @staticmethod
-    def __init__(self):
-        Dijkstra.run()
-        Dijkstra.result()
-
-    @staticmethod
-    def setVar(_grafo, _costoNodi, _parents, _processati):
+    def __init__(_grafo, _costoNodi, _parents):
         Dijkstra.grafo = _grafo
         Dijkstra.costoNodi = _costoNodi
         Dijkstra.parents = _parents
-        Dijkstra.processati = _processati
+
+        Dijkstra.run()
+        Dijkstra.result()
 
     @staticmethod
     def nodo_con_costo_minore():

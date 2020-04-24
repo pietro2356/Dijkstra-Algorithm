@@ -20,7 +20,7 @@ class Interface:
             print("Inserisci il valore del nodo: ", i)
             Interface.createNode(input())
 
-        print("GRAFO: ", Interface.grafo)
+        # print("GRAFO: ", Interface.grafo)
 
         # Inserimento dei link:
         while True:
@@ -42,13 +42,13 @@ class Interface:
             except KeyError:
                 print("Valore non corretto!")
                 continue
-        print("GRAFO: ", Interface.grafo)
+        # print("GRAFO: ", Interface.grafo)
 
         # Imposto il costo dei nodi e dei pearent:
-        print("Indicare il nodo di partenza: ")
+        # print("Indicare il nodo di partenza: ")
         nS = input()
         vicini = Interface.grafo[nS]
-        print(vicini)
+        # print(vicini)
         Interface.setCostoNodi(nS, 0)    # Il costo del nodo di partenza è sempre 0.
 
         for item in vicini.keys():
@@ -59,7 +59,7 @@ class Interface:
             # Imposto il parent dei nodi direttamente collegati al nodo sorgente
             Interface.setParent(item, nS)
 
-        print("Costo nodi DEG: ", Interface.costoNodi)
+        # print("Costo nodi DEG: ", Interface.costoNodi)
 
         for item in Interface.grafo:
             if item not in Interface.costoNodi:
@@ -67,7 +67,7 @@ class Interface:
                 Interface.setCostoNodi(item, math.inf)
                 # Impostiamo a None i nodi NON direttamente collegati al nodo sorgente.
                 Interface.setParent(item, None)
-        print("Costo nodi: ", Interface.costoNodi)
+        # print("Costo nodi: ", Interface.costoNodi)
 
         # Esecuzione algoritmo
         Dijkstra.__init__(Interface.grafo,

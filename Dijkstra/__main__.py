@@ -1,6 +1,5 @@
 from Algorithm.Dijkstra import Dijkstra
-from Algorithm.CliInterface import CliInterface
+from Algorithm.Interface import Interface
 
 if __name__ == '__main__':
-    # Dijkstra.run()
-    CliInterface.__init__(self="")
+    Interface.__init__(self="")

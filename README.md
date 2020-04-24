@@ -23,7 +23,9 @@ Una volta fatto ciò, bisognerà impostare il grafo da far esaminare ill'algorit
 * ***PURTROPPO QUESTA OPERAZIONE VA ANCORA ESEGUITA A MANO*** <br>
 * ***SI STA PROCEDENDO NELLA CREAZIONE DI UN'INTERFACCIA GRAFICA CHE SEMPLIFICHI QUESTA OPERAZIONE***
 
-> ### Per la creazione dei grafi vi rimandiamo alla guida apposita [LINK](GRAPH.md)
+> ## È stata implemetata una modalità di inserimento a CLI "Linea ci comando". <br>
+> ## I passaggi sono totalmente guidati. Presto arriverà la versione grafica!!!
+> ## Per la creazione dei grafi vi rimandiamo alla guida apposita [LINK](GRAPH.md) !~ NON AGGIORNATA ~!
 
 ### Esecuzione del software
 

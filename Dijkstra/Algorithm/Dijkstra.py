@@ -46,10 +46,11 @@ class Dijkstra:
             costoNodo = Dijkstra.costoNodi[nodo]  # costo nodo corrente.
             vicini = Dijkstra.grafo[nodo]  # ricavo i nodi vicini
             for n in vicini.keys():
-                nuovoCostoNodo = costoNodo + vicini[n]  # costo per arrivare al nodo che sto esaminando.
-                if Dijkstra.costoNodi[n] > nuovoCostoNodo:
-                    Dijkstra.costoNodi[n] = nuovoCostoNodo
-                    Dijkstra.parents[n] = nodo
+                x = str(n)
+                nuovoCostoNodo = costoNodo + vicini[x]  # costo per arrivare al nodo che sto esaminando.
+                if Dijkstra.costoNodi[x] > nuovoCostoNodo:
+                    Dijkstra.costoNodi[x] = nuovoCostoNodo
+                    Dijkstra.parents[x] = nodo
             Dijkstra.processati.append(nodo)  # inserisco il nodo appena processato in questo array in modo da non creare loop.
             nodo = Dijkstra.nodo_con_costo_minore()
 

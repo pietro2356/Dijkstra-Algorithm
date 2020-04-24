@@ -43,7 +43,7 @@ class CliInterface:
                 continue
         print("GRAFO: ", CliInterface.grafo)
 
-        # Imposto il costo dei nodi:
+        # Imposto il costo dei nodi e dei pearent:
         print("Indicare il nodo di partenza: ")
         nS = input()
         vicini = CliInterface.grafo[nS]
@@ -67,9 +67,6 @@ class CliInterface:
                 # Impostiamo a None i nodi NON direttamente collegati al nodo sorgente.
                 CliInterface.setParent(item, None)
         print("Costo nodi: ", CliInterface.costoNodi)
-
-        # Impostazione dei parenti:
-
 
         # Esecuzione algoritmo
         Dijkstra.__init__(CliInterface.grafo,

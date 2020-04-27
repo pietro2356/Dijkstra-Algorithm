@@ -1,4 +1,6 @@
 # GUIDA ALLA CREAZIONE DEI GRAFI
+![status](https://img.shields.io/badge/Stato-Deprecata-red)
+![usage](https://img.shields.io/badge/Usabilità-Buona-informational)
 
 #### IMMAGINE DEL GRAFO
 ![grafoStart](/img/grafoStart.png)

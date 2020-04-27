@@ -1,49 +1,47 @@
 # Dijkstra-Algorithm:fire:
 
-Questo proggetto rappresenta il funzionamento dell'algorirmo **Dijkstra**.
+Questo progetto va ad implementare l'algoritmo di Dijkstra scritto in Python.
 
-## Come iniziare
-
-Il codice è scritto in **python3** :snake:. Non necessita di nessuna libreria esterna!
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+![GitHub](https://img.shields.io/github/license/pietro2356/Dijkstra-Algorithm)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/pietro2356/Dijkstra-Algorithm)
+![GitHub top language](https://img.shields.io/github/languages/top/pietro2356/Dijkstra-Algorithm)
+![GitHub contributors](https://img.shields.io/github/contributors/pietro2356/Dijkstra-Algorithm)
+![GitHub last commit](https://img.shields.io/github/last-commit/pietro2356/Dijkstra-Algorithm)
+![GitHub repo size](https://img.shields.io/github/repo-size/pietro2356/Dijkstra-Algorithm)
 
 ### Prerequisiti
 
-* Avere un'istanza **python3** sul proprio computer.
-
-
-### Preparazione all'esecuzione
-
-Prima di poter avviare il programma, vi sono alcune operaizoni preliminari da fare:
-
-```shell script
-python setup.py sdist
-```
-
-Una volta fatto ciò, bisognerà impostare il grafo da far esaminare ill'algoritmo. <br>
-* ***PURTROPPO QUESTA OPERAZIONE VA ANCORA ESEGUITA A MANO*** <br>
-* ***SI STA PROCEDENDO NELLA CREAZIONE DI UN'INTERFACCIA GRAFICA CHE SEMPLIFICHI QUESTA OPERAZIONE***
-
-> ## È stata implemetata una modalità di inserimento a CLI "Linea ci comando". <br>
-> ## I passaggi sono totalmente guidati. Presto arriverà la versione grafica!!!
-> ## Per la creazione dei grafi vi rimandiamo alla guida apposita [LINK](GRAPH.md) !~ NON AGGIORNATA ~!
+* Avere installato **Python 3** sul vostro pc.
 
 ### Esecuzione del software
 
-Per eseguire il programma seguire i seguenti passaggi:
-
+Per eseguire il programma Entrare nella cartella `Dijkstra`:
 ```shell script
 cd Dijkstra
+```
+Una volta al suo interno avviate il file `__main__.py` con:
+```shell script
 python __main__.py
 ```
+oppure
+```shell script
+python3 __main__.py
+```
+
+Qui il programma si avverà in modalità CLI ed vi indicherà cosa fare. <br>
+
+> ### Si sta lavorando per creare un'interfaccia grafica, che permetterà di semplificare il lavoro.
+> #### In caso si volesse prendere famigliarità con la creazione dei grafi, vi rimandiamo alla [guida](GRAPH.md) dedicata:
 
 ## Creato con
 
-* **[Python3](https://www.python.org/)** - Il linguaggio di programmazione usato.
+* **[Python3](https://www.python.org/)** - Abbiamo deciso di utilizzare questo linguaggio in quanto molto rapido e veloce da usare.
 
 ## Autori
 
-* **Rocchio Pietro** :fire_engine:
-* **Cerbaro Jessica** :blossom:
+* **Rocchio Pietro** - _BackEnd_ - :fire_engine:
+* **Cerbaro Jessica** - _FrontEnd_ - :blossom:
 
 ## Licenza
 
@@ -53,4 +51,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * **Paolo Aliverti** - *Algoritmo* - [YouTube](https://www.youtube.com/user/zeppelinmaker)
 * **I nostri poveri neuroni :dizzy_face:**
-* etc

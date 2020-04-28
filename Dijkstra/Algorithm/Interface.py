@@ -1,5 +1,5 @@
 import math
-from Algorithm.Dijkstra import Dijkstra
+from Dijkstra.Algorithm.Dijkstra import Dijkstra
 
 
 class Interface:
@@ -93,3 +93,9 @@ class Interface:
     @staticmethod
     def setParent(nodo, parent):
         Interface.parents[nodo] = parent
+
+    @staticmethod
+    def run():
+        Dijkstra.__init__(Interface.grafo,
+                          Interface.costoNodi,
+                          Interface.parents, 1)

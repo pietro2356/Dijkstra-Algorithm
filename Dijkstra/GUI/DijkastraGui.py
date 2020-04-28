@@ -1,4 +1,5 @@
 from tkinter import *
+from Dijkstra.Algorithm.Interface import Interface
 
 root = Tk()
 root.title("Dijkastra Algorithm")
@@ -11,6 +12,9 @@ txt = Entry(root, textvariable=content)
 txt.grid(column=1, row=0, pady=10)
 txt.focus()
 
+# TODO: Da reimplementare.
+RAM = []
+
 
 def collegamenti():
     lbl3 = Label(root, text="Collegato a: ")
@@ -19,6 +23,8 @@ def collegamenti():
     txt2 = Entry(root, textvariable=content2)
     txt2.grid(column=2, row=2, pady=30, sticky=N)
     txt2.focus()
+    print(txt2.get())
+    return txt2.get()
 
 
 def peso():
@@ -27,6 +33,9 @@ def peso():
     content3 = StringVar()
     txt3 = Entry(root, textvariable=content3)
     txt3.grid(column=2, row=2, pady=50, sticky=N)
+    txt3.focus()
+    print(txt3.get())
+    return txt3.get()
 
 
 def onselect(evt):
@@ -35,9 +44,12 @@ def onselect(evt):
     value = w.get(index)
     print('You selected item %d: "%s"' % (index, value))
     lbl2 = Label(root, text=("Nodo '%s'" % value))
+    # Value ==> nodoStart
     lbl2.grid(column=1, row=2, pady=10, sticky=N)
-    collegamenti()
-    peso()
+
+    RAM.append({value, collegamenti(), peso()})
+    # collegamenti()
+    # peso()
 
 
 listbox = Listbox(root, selectmode=EXTENDED)
@@ -48,11 +60,21 @@ listbox.bind('<<ListboxSelect>>', onselect)
 def addnode():
     listbox.insert("end", content.get())
     txt.delete(0, "end")
+    Interface.createNode(content.get())
 
 
+def update():
+    print("Out RAM")
+    for i in RAM:
+        print(i)
+
+
+# TODO: Reimplementare il tutto con una classe.
 btn = Button(root, text="+ New Nodo", command=addnode)
 btn.grid(column=0, row=1, pady=5)
 
-calcolo = Button(root, text="Calcolo Percorso", command=percorso)
+calcolo = Button(root, text="Calcolo Percorso", command=Interface.run())
 calcolo.grid(column=1, row=3, pady=5)
+update = Button(root, text="Aggiorna", command=update())
+update.grid(column=2, row=3, pady=5)
 root.mainloop()

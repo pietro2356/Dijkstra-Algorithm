@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Dijkstra-Algorithm", # Replace with your own username
-    version="1.2.0",
+    version="1.2.2",
     author="Rocchio Pietro - Cerbaro Jessica",
     description="A small example package",
     long_description=open('README.md').read(),

@@ -18,13 +18,19 @@ class Dijkstra:
     processati = []
 
     @staticmethod
-    def __init__(_grafo, _costoNodi, _parents):
+    def __init__(_grafo, _costoNodi, _parents, type):
         Dijkstra.grafo = _grafo
         Dijkstra.costoNodi = _costoNodi
         Dijkstra.parents = _parents
 
         Dijkstra.run()
-        Dijkstra.result()
+
+        if type == 0:
+            Dijkstra.result()
+        elif type == 1:
+            Dijkstra.resultGUI()
+        else:
+            pass
 
     @staticmethod
     def nodo_con_costo_minore():
@@ -103,3 +109,7 @@ class Dijkstra:
         print("Grafo: ", Dijkstra.grafo)
         print("Parents: ", Dijkstra.parents)
         print("Percorso: ", Dijkstra.stampaPercorso())
+
+    @staticmethod
+    def resultGUI():
+        return [Dijkstra.grafo, Dijkstra.parents, Dijkstra.stampaPercorso()]

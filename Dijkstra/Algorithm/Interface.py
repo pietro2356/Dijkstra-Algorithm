@@ -45,7 +45,7 @@ class Interface:
         # print("GRAFO: ", Interface.grafo)
 
         # Imposto il costo dei nodi e dei pearent:
-        # print("Indicare il nodo di partenza: ")
+        print("Indicare il nodo di partenza: ")
         nS = input()
         vicini = Interface.grafo[nS]
         # print(vicini)
@@ -72,7 +72,7 @@ class Interface:
         # Esecuzione algoritmo
         Dijkstra.__init__(Interface.grafo,
                           Interface.costoNodi,
-                          Interface.parents)
+                          Interface.parents, 0)
 
     @staticmethod
     def createNode(nomeNodo):

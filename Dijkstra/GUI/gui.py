@@ -33,7 +33,7 @@ def onselect(evt):
 
 
 # ---------------------------------------------
-
+# TODO: Da finire.
 # Row 0
 # Label NomeNodo
 lblNomeNodo = tk.Label(text="Inserire il nome del nodo:", font=("arial", 12))

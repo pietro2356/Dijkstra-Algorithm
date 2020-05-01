@@ -17,7 +17,7 @@ def addNodo():
         nomeNodo = txtInNomeNodo.get()
         lstNodi.insert("end", nomeNodo)
         txtInNomeNodo.delete(0, "end")
-
+        # TODO: Implementare controllo
         Interface.createNode(nomeNodo)  # Creazione del nodo.
     else:
         tk.messagebox.showinfo("Avviso", "Il valore inserito non è valido!")

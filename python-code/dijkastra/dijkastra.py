@@ -52,7 +52,4 @@ def addnode():
 
 btn = Button(root, text="+ New Nodo", command=addnode)
 btn.grid(column=0, row=1, pady=5)
-
-calcolo = Button(root, text="Calcolo Percorso", command=addnode)
-calcolo.grid(column=1, row=3, pady=5)
 root.mainloop()
